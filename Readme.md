@@ -8,3 +8,9 @@ Linux: https://askubuntu.com/questions/1235957/how-to-add-chromedriver-to-path-i
 Запуск тестов: 
 `pytest test_calculator.py`
 
+Запуск теста для проверки строки результата: 
+`pytest -m result test_calculator.py`
+
+Запуск теста для проверки строки памяти: 
+`pytest -m memory test_calculator.py`
+
