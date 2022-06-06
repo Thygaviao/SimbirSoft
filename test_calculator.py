@@ -1,22 +1,24 @@
-import pages.calculator_page
+from pages.calculator_page import CalculatorPage
 import pytest
 
 
-@pytest.mark.result
-def test_check_result_string_on_calculator_page(browser):
-    page = pages.calculator_page.CalculatorPage(browser)
+class TestCalc:
 
-    page.open()
-    page.go_to_calculator_page()
-    page.input_numbers_on_calculator()
-    assert page.return_result() == '0'
+    @pytest.mark.result
+    def test_check_result_string_on_calculator_page(self, browser):
+        self.page = CalculatorPage(browser)
 
+        self.page.open()
+        self.page.go_to_calculator_page()
+        self.page.input_numbers_on_calculator()
+        self.page.return_result_string()
+        self.page.return_memory_string()
 
-@pytest.mark.memory
-def test_check_memory_string_on_calculator_page(browser):
-    page = pages.calculator_page.CalculatorPage(browser)
+    @pytest.mark.memory
+    def test_check_memory_string_on_calculator_page(self, browser):
+        self.page = CalculatorPage(browser)
 
-    page.open()
-    page.go_to_calculator_page()
-    page.input_numbers_on_calculator()
-    assert page.return_memory_string() == '1 × 2 - 3 + 1 ='
+        self.page.open()
+        self.page.go_to_calculator_page()
+        self.page.input_numbers_on_calculator()
+        self.page.return_memory_string()
